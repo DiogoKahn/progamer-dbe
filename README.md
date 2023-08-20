@@ -1,3 +1,9 @@
+### Projeto de estudo de Digital Business Enablement
+Grupo:
+- Diogo Giarranti Kahn | RM: 92928
+- Pedro Chueiri | RM: 93939
+- Mateus da Costa Leme | RM: 93480 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
