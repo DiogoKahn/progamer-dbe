@@ -12,12 +12,8 @@ export default async function Setups() {
   return (
     <>
       <NavBar active={"setups"}/>
-
-      <main className='bg-secondary m-20 p-12'>
-        <h2>Setups</h2>
-        {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
-      </main>
-
+      <h2 className='m-20'>Setups</h2>
+      {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
     </>
     
   )
