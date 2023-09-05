@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import NavBar from '../components/NavBar'
 import DataRow from "./DataRow";
 
@@ -12,7 +13,10 @@ export default async function Setups() {
   return (
     <>
       <NavBar active={"setups"}/>
-      <h2 className='m-20'>Setups</h2>
+      <div className='flex justify-between'>
+        <h2 className='m-20'>Setups</h2>
+        <Button variant="contained" href="#" className='m-20 bg-pink-600'>Adicionar Setup</Button>
+      </div>
       {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
     </>
     
