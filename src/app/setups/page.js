@@ -15,7 +15,7 @@ export default async function Setups() {
       <NavBar active={"setups"}/>
       <div className='flex justify-between'>
         <h2 className='m-20'>Setups</h2>
-        <Button variant="contained" href="#" className='m-20 bg-pink-600'>Adicionar Setup</Button>
+        <Button variant="contained" href="#" className='m-20 bg-pink-600 hover:bg-secondary'>Adicionar Setup</Button>
       </div>
       {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
     </>
