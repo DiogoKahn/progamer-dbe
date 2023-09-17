@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
-import NavBar from '../components/NavBar'
+import NavBar from '../../components/NavBar'
 import DataRow from "./DataRow";
 
 async function getSetups(){
   const url = "http://localhost:8080/progamer/api/setups"
-  const resp = await fetch(url, { next: { revalidate: 0 } })
+  const resp = await fetch(url)
   return resp.json()
 }
 
@@ -15,7 +15,11 @@ export default async function Setups() {
       <NavBar active={"setups"}/>
       <div className='flex justify-between'>
         <h2 className='m-20'>Setups</h2>
-        <Button variant="contained" href="#" className='m-20 bg-pink-600 hover:bg-secondary'>Adicionar Setup</Button>
+        <div className='rounded-sm p-5 m-20 bg-pink-600 hover:bg-secondary'>
+          <Button href="/setups/new" variant='primary'>
+            Adicionar Setup
+          </Button>
+        </div>
       </div>
       {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
     </>
