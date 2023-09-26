@@ -1,5 +1,5 @@
 "use client"
-import { create, update } from "@/actions/setups";
+import { update } from "@/actions/setups";
 import Button from "@/components/Button";
 import InputText from "@/components/InputText";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation'
 
 export default function FormEdit({setup}) {
     const [error, setError] = useState("")
-    const [setupEdit, setSetupEdit] = useState(setup)
+    const [setupEdit, setSetupsEdit] = useState(setup)
 
     async function handleSubmit() {
         const resp = await update(setupEdit)
@@ -22,11 +22,15 @@ export default function FormEdit({setup}) {
     }
 
     function handleFieldEdit(field, value){
-        setSetupEdit({
+        setSetupsEdit({
             ...setupEdit,
             [field]: value
         })
 
+    }
+
+    if (!setupEdit) {
+        return <h1>{setup}</h1>
     }
 
     return (
@@ -35,7 +39,7 @@ export default function FormEdit({setup}) {
 
             <form action={handleSubmit} className="flex flex-col gap-4">
                 <InputText
-                    label="name"
+                    label="Nome"
                     id="name"
                     name="name"
                     value={setupEdit.name}
@@ -51,14 +55,6 @@ export default function FormEdit({setup}) {
                 />
 
                 <InputText
-                    label="Games"
-                    id="games"
-                    name="games"
-                    value={setupEdit.games}
-                    onChange={(e) => handleFieldEdit("games", e.target.value)}
-                />
-
-                <InputText
                     label="Preço"
                     id="price"
                     name="price"
@@ -67,7 +63,15 @@ export default function FormEdit({setup}) {
                 />
 
                 <InputText
-                    label="File"
+                    label="Jogos"
+                    id="games"
+                    name="games"
+                    value={setupEdit.games}
+                    onChange={(e) => handleFieldEdit("games", e.target.value)}
+                />
+
+                <InputText
+                    label="Imagem"
                     id="file"
                     name="file"
                     value={setupEdit.file}

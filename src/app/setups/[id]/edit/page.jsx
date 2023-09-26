@@ -10,7 +10,7 @@ export default async function SetupEdit({params}) {
     return (
         <>
             <NavBar active="setups" />
-            <FormEdit conta={setup} />
+            <FormEdit setup={setup} />
         </>
     )
 }
