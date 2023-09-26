@@ -1,36 +1,33 @@
-"use client";
+"use client"
 import { create, update } from "@/actions/setups";
 import Button from "@/components/Button";
 import InputText from "@/components/InputText";
 import { useState } from "react";
-import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation'
 
-export default function FormEdit({ setup }) {
-    const [error, setError] = useState("");
-    const [setupEdit, setSetupEdit] = useState(setup || { name: "", description: "", games: "", price: "", file: "" });
+export default function FormEdit({setup}) {
+    const [error, setError] = useState("")
+    const [setupEdit, setSetupEdit] = useState(setup)
 
     async function handleSubmit() {
-        const resp = await update(setupEdit);
+        const resp = await update(setupEdit)
 
         if (resp?.error) {
-            setError(resp.error);
-            return;
+            setError(resp.error)
+            return
         }
 
-        redirect("/setups");
+        redirect("/setups")
+
     }
 
-    function handleFieldEdit(field, value) {
+    function handleFieldEdit(field, value){
         setSetupEdit({
             ...setupEdit,
             [field]: value
-        });
-    }
+        })
 
-    if (!setupEdit) {
-        return null; 
     }
-
 
     return (
         <main className="bg-slate-900 mt-20 m-auto p-12 rounded max-w-lg">
