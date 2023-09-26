@@ -19,7 +19,7 @@ export default function DataRow({ setup }) {
                     </div>
                 </div>
                 <span className="text-sm my-12">{`Preço: $${setup.price.toFixed(2)}`}</span>
-                <DropMenu contaId={setup.id} />
+                <DropMenu setupId={setup.id} />
             </div>
         </main>
     );

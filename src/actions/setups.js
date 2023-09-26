@@ -50,13 +50,13 @@ export async function destroy(id){
 
 }
 
-export async function getConta(id){
+export async function getSetup(id){
     const getUrl = url + "/" + id
 
     const resp = await fetch(getUrl)
 
     if(resp.status !== 200)
-        return {error: "Erro ao buscar dados da conta"}
+        return {error: "Erro ao buscar dados da setup"}
 
     return await resp.json()
 }
