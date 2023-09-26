@@ -9,7 +9,6 @@ export default function Perfil() {
       <main className='bg-secondary m-20 p-12'>
         <h2>Perfil</h2>
       </main>
-
     </>
     
   )
