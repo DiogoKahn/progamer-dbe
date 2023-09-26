@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache"
 
-const url = "http://localhost:8080/progamer/api/setups"
-// const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
+// const url = "http://localhost:8080/progamer/api/setups"
+const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
 export async function create(formData){
 
     const options = {

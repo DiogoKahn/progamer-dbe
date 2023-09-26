@@ -3,8 +3,8 @@ import NavBar from '../../components/NavBar'
 import DataRow from "./DataRow";
 
 async function getSetups(){
-  const url = "http://localhost:8080/progamer/api/setups"
-  // const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
+  // const url = "http://localhost:8080/progamer/api/setups"
+  const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
   const resp = await fetch(url)
   return resp.json()
 }
