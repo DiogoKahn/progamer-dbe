@@ -1,21 +1,23 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
+import { cookies } from "next/headers"
 
-// const url = "http://localhost:8080/progamer/api/setups"
-const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
+const url = "http://localhost:8080/progamer/api/setups"
+
 export async function create(formData){
-
+    const token = cookies().get('progamer_token')
+   
     const options = {
         method: "POST",
         body: JSON.stringify( Object.fromEntries(formData) ),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token.value}`
         }
     }
 
     const resp = await fetch(url, options)
-    console.log(options.body)
 
     if (resp.status !== 201){
         const json = await resp.json()
@@ -27,9 +29,20 @@ export async function create(formData){
     return {success: "ok"}
 }
 
-export async function getSetups() {
-    await new Promise(r => setTimeout(r, 5000))
-    const resp = await fetch(url)
+export async function getsetups() {
+    const token = cookies().get('setup_token')
+
+    const options = {
+        headers: {
+            "Authorization": `Bearer ${token.value}`
+        }
+    }
+
+    const resp = await fetch(url, options)
+
+    if (resp.status !== 200) 
+        console.log(resp)
+
     return resp.json()
 }
 
@@ -50,7 +63,7 @@ export async function destroy(id){
 
 }
 
-export async function getSetup(id){
+export async function getsetup(id){
     const getUrl = url + "/" + id
 
     const resp = await fetch(getUrl)

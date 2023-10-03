@@ -1,13 +1,7 @@
 import { Button } from '@mui/material';
 import NavBar from '../../components/NavBar'
 import DataRow from "./DataRow";
-
-async function getSetups(){
-  // const url = "http://localhost:8080/progamer/api/setups"
-  const url = "https://progamer-dbe-api-production.up.railway.app/progamer/api/setups"
-  const resp = await fetch(url)
-  return resp.json()
-}
+import { getsetups } from '@/actions/setups';
 
 export default async function Setups() {
   const setups = await getSetups()
@@ -22,7 +16,7 @@ export default async function Setups() {
           </Button>
         </div>
       </div>
-      {setups.map(setup => <DataRow key={setup.id} setup={setup} />)}
+      {setups?.map(setup => <DataRow key={setup.id} setup={setup} />)}
     </>
     
   )
